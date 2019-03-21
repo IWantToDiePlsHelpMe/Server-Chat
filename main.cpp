@@ -35,13 +35,13 @@ int main(){
 	connections=(SOCKET*)calloc(64,sizeof(SOCKET));
 	printf("Сервер");
 	if(WSAStartup(versya,&dat)){
-		printf("Ошибка ");
+		printf("шошибка ");
         return -1;
 	}
 	
 	 if ((server1=socket(AF_INET,SOCK_STREAM,0))<0){
-      printf("Ошибка при создании socket %d\n",WSAGetLastError());
-      WSACleanup();//удаляем сокет
+      printf("шошибка при socket %d\n",WSAGetLastError());
+      WSACleanup();
       return -1;
     }
 	sockaddr_in adr;
@@ -49,14 +49,14 @@ int main(){
 	adr.sin_port=htons(PORT);
 	adr.sin_addr.s_addr=0;//IPPROTO_TCP;
 	if (bind(server1,(sockaddr *) &adr,sizeof(adr))){
-      printf("\nОшибка присвоение имени сокету bind %d\n",WSAGetLastError());
+      printf("\шошибкап присвоение имени сокету bind %d\n",WSAGetLastError());
       closesocket(server1); 
       WSACleanup();
       return -1;
     }
 
 	if (listen(server1, 20))/*SOMAXCONN))*/{
-      printf("\nОшибка ожидание клиента %d\n",WSAGetLastError());
+      printf("\шошибка ожидание клиента %d\n",WSAGetLastError());
       closesocket(server1);
       WSACleanup();
       return -1;
