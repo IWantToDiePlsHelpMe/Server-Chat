@@ -48,6 +48,7 @@ int main(){
 	adr.sin_family=AF_INET;
 	adr.sin_port=htons(PORT);
 	adr.sin_addr.s_addr=0;//IPPROTO_TCP;
+  //   server1=socket(AF_INET,SOCK_STREAM,IPPROTO_TCP);
 	if (bind(server1,(sockaddr *) &adr,sizeof(adr))){
       printf("\шошибкап присвоение имени сокету bind %d\n",WSAGetLastError());
       closesocket(server1); 
